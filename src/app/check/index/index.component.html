@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Website Monitoring Tool</h1>
+    
+    <a href="#" routerLink="/check/create/" class="btn btn-success">Create New Check</a>
+      
+    <table class="table table-striped">
+        <thead>
+              <tr>
+                <th>ID</th>
+                <th>Website Name</th>
+                <th>Website Url</th>
+                <th>Website Frequency</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let check of checks">
+                <td>{{ check.id }}</td>
+                <td>{{ check.websiteName }}</td>
+                <td>{{ check.websiteUrl }}</td>
+                <td>{{ check.websiteFrequency }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/check/', check.id, 'view']" class="btn btn-info">View</a>
+                  <a href="#" [routerLink]="['/check/', check.id, 'edit']" class="btn btn-primary">Edit</a>
+                  <button type="button" (click)="deleteCheck(check.id)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>

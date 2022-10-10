@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Create New Check</h1>
+  
+    <a href="#" routerLink="/check/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="title">Website Name:</label>
+            <input 
+                formControlName="websiteName"
+                id="websiteName" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['websiteName'].touched && f['websiteName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['websiteName'].errors && f['websiteName'].errors['required']">Website Name is required.</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="websiteUrl">Website Url</label>
+            <textarea 
+                formControlName="websiteUrl"
+                id="websiteUrl" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['websiteUrl'].touched && f['websiteUrl'].invalid" class="alert alert-danger">
+                <div *ngIf="f['websiteUrl'].errors && f['websiteUrl'].errors['required']">Website Url is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="websiteFrequency">Website Frequency</label>
+            <textarea 
+                formControlName="websiteFrequency"
+                id="websiteFrequency" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['websiteFrequency'].touched && f['websiteFrequency'].invalid" class="alert alert-danger">
+                <div *ngIf="f['websiteFrequency'].errors && f['websiteFrequency'].errors['required']">Website Frequency is required.</div>
+            </div>
+        </div>
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>

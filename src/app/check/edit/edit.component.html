@@ -1,0 +1,52 @@
+<div class="container">
+    <h1>Update Check</h1>
+   
+    <a href="#" routerLink="/check/index" class="btn btn-primary">Back</a>
+          
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="websiteName">Website Name:</label>
+            <input 
+                formControlName="websiteName"
+                id="websiteName" 
+                type="text" 
+                [(ngModel)]="check.websiteName"
+
+                class="form-control">
+            <div *ngIf="f['title'].touched && f['title'].invalid" class="alert alert-danger">
+                <div *ngIf="f['websiteName'].errors && f['websiteName'].errors['required']">Website Name is required.</div>
+            </div>
+        </div>
+           
+        <div class="form-group">
+            <label for="websiteUrl">Body</label>
+            <textarea 
+                formControlName="websiteUrl"
+                id="websiteUrl" 
+                type="text" 
+                [(ngModel)]="check.websiteUrl"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['websiteUrl'].touched && f['websiteUrl'].invalid" class="alert alert-danger">
+                <div *ngIf="f['websiteUrl'].errors && f['websiteUrl'].errors['required']">Website Url is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="websiteFrequency">Website Frequency</label>
+            <textarea 
+                formControlName="websiteFrequency"
+                id="websiteFrequency" 
+                type="text" 
+                [(ngModel)]="check.websiteFrequency"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['websiteFrequency'].touched && f['websiteFrequency'].invalid" class="alert alert-danger">
+                <div *ngIf="f['websiteFrequency'].errors && f['websiteFrequency'].errors['required']">Website Frerquency is required.</div>
+            </div>
+        </div>
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
